@@ -11,4 +11,5 @@ func main() {
 	fmt.Println("Hello world")
 	slog.Info("Hello world")
 	core.DoSomething()
+	slog.Error(core.ReturnSomething().Error())
 }
