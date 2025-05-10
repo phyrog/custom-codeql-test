@@ -18,7 +18,11 @@ module MyFlowConfiguration implements DataFlow::ConfigSig {
     )
   }
 
-  predicate isSink(DataFlow::Node sink) { any() }
+  predicate isAdditionalFlowStep(DataFlow::Node n1, DataFlow::Node n2) {
+    n2.asExpr().(SelectorExpr).getBase() = n1.asExpr()
+  }
+
+  predicate isSink(DataFlow::Node sink) { sink.asExpr() instanceof SelectorExpr }
 }
 
 module Flow = TaintTracking::Global<MyFlowConfiguration>;
