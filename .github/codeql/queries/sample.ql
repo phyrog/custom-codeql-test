@@ -1,5 +1,5 @@
 /**
- * @name sample
+ * @name Sample Query
  * @description sample codeql query
  * @kind problem
  * @problem.severity error
