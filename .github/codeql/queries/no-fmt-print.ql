@@ -13,5 +13,5 @@ from CallExpr print, string name, Function f
 where
   f = print.getTarget() and
   f.hasQualifiedName("fmt", name) and
-  (name = "Println" or name = "Printf")
+  name in ["Print", "Printf", "Println"]
 select print.getLocation(), "Found call to " + f.getQualifiedName() + ". Use slog instead."
